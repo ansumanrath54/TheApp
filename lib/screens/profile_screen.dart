@@ -4,7 +4,7 @@ import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:google_sign_in/google_sign_in.dart';
 import 'package:social_media_app_starter/chat_app/modules/chat_page.dart';
-import 'package:social_media_app_starter/slidebar_menu.dart';
+import 'package:social_media_app_starter/services/slidebar_menu.dart';
 
 import 'onboarding_screen.dart';
 
@@ -29,7 +29,6 @@ class _MyHomePageState extends State<MyHomePage> {
   @override
   void initState() {
     getData();
-    // TODO: implement initState
     super.initState();
   }
 
@@ -44,7 +43,7 @@ class _MyHomePageState extends State<MyHomePage> {
         children: <Widget>[
           SizedBox.expand(
             child: Image.asset(
-              "assets/images/oyo ps.png",
+              "assets/images/upbuz profile.png",
               fit: BoxFit.cover,
             ),
           ),
@@ -54,6 +53,7 @@ class _MyHomePageState extends State<MyHomePage> {
                 scaffoldkey.currentState.openDrawer();
               },
               icon: Icon(Icons.menu),
+              color: Colors.white,
             ),
           ),
           DraggableScrollableSheet(
@@ -80,10 +80,6 @@ class _MyHomePageState extends State<MyHomePage> {
                                 height: 100,
                                 width: 100,
                                 child: ClipOval(
-                                  // child: Image.asset(
-                                  //   'assets/images/ritesh agarwal.jfif',
-                                  //   fit: BoxFit.cover,
-                                  // ),
                                   child: Image.network(
                                     '$photo',
                                     fit: BoxFit.cover,

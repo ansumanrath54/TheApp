@@ -1,9 +1,10 @@
 import 'package:firebase_auth/firebase_auth.dart';
 import 'package:flutter/material.dart';
 import 'package:google_sign_in/google_sign_in.dart';
+import 'package:social_media_app_starter/Upload%20page.dart';
 import 'package:social_media_app_starter/screens/onboarding_screen.dart';
-import 'package:social_media_app_starter/screens/post_screen.dart';
 import 'package:social_media_app_starter/screens/user_details.dart';
+import '../details.dart';
 
 class SlideBarMenu extends StatelessWidget {
   const SlideBarMenu({Key key}) : super(key: key);
@@ -31,7 +32,14 @@ class SlideBarMenu extends StatelessWidget {
             leading: Icon(Icons.add),
             title: Text('Post an Idea'),
             onTap: () {
-              Navigator.push(context, MaterialPageRoute(builder: (context) => PostScreen()));
+              Navigator.push(context, MaterialPageRoute(builder: (context) => UploadPage()));
+            },
+          ),
+          ListTile(
+            leading: Icon(Icons.comment),
+            title: Text('Comment'),
+            onTap: () {
+              Navigator.push(context, MaterialPageRoute(builder: (context) => DetailsPage()));
             },
           ),
           ListTile(
