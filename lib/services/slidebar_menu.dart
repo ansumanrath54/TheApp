@@ -1,8 +1,9 @@
 import 'package:firebase_auth/firebase_auth.dart';
 import 'package:flutter/material.dart';
 import 'package:google_sign_in/google_sign_in.dart';
-import 'package:social_media_app_starter/Upload%20page.dart';
 import 'package:social_media_app_starter/screens/onboarding_screen.dart';
+import 'package:social_media_app_starter/screens/post_page.dart';
+import 'package:social_media_app_starter/screens/upload_screen.dart';
 import 'package:social_media_app_starter/screens/user_details.dart';
 import '../details.dart';
 
@@ -32,7 +33,14 @@ class SlideBarMenu extends StatelessWidget {
             leading: Icon(Icons.add),
             title: Text('Post an Idea'),
             onTap: () {
-              Navigator.push(context, MaterialPageRoute(builder: (context) => UploadPage()));
+              Navigator.push(context, MaterialPageRoute(builder: (context) => PostPage()));
+            },
+          ),
+          ListTile(
+            leading: Icon(Icons.accessibility),
+            title: Text('See others Posts'),
+            onTap: () {
+              Navigator.push(context, MaterialPageRoute(builder: (context) => UploadScreen()));
             },
           ),
           ListTile(

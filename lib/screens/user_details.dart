@@ -235,7 +235,7 @@ class _UserDetailsState extends State<UserDetails> {
                                   ScaffoldMessenger.of(context).showSnackBar(snackBar);
                                 }
                                 else{
-                                  //uploadImage();
+                                  await user.updateDisplayName(name);
                                   await UserData(email: user.email).updateUserData(name, username, company, about, _urlDownload);
                                   Navigator.pushReplacement(context, MaterialPageRoute(builder: (context) => MyHomePage()));
                                 }

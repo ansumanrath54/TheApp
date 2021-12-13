@@ -85,131 +85,130 @@ class _LoginPageState extends State<LoginPage> {
                 ],
               ),
             ),
-            Expanded(
-                child: Container(
+            Container(
               decoration: BoxDecoration(
-                  color: Colors.white,
-                  borderRadius: BorderRadius.only(
-                    topLeft: Radius.circular(60),
-                    topRight: Radius.circular(60),
-                  )),
+              color: Colors.white,
+              borderRadius: BorderRadius.only(
+                topLeft: Radius.circular(60),
+                topRight: Radius.circular(60),
+              )),
               child: Padding(
-                padding: EdgeInsets.all(30),
-                child: Form(
-                  key: loginFormKey,
-                  child: Column(
-                    children: <Widget>[
-                      SizedBox(height: 25),
-                      TextFormField(
-                        decoration: InputDecoration(
-                            hintText: "Enter your email",
-                            hintStyle: TextStyle(color: Colors.grey)),
-                        validator: validateInput,
-                        onChanged: (value){
-                          email=value;
-                        },
+            padding: EdgeInsets.all(30),
+            child: Form(
+              key: loginFormKey,
+              child: Column(
+                children: <Widget>[
+                  SizedBox(height: 25),
+                  TextFormField(
+                    decoration: InputDecoration(
+                        hintText: "Enter your email",
+                        hintStyle: TextStyle(color: Colors.grey)),
+                    validator: validateInput,
+                    onChanged: (value){
+                      email=value;
+                    },
+                  ),
+                  SizedBox(height: 20),
+                  TextFormField(
+                    decoration: InputDecoration(
+                        hintText: "Enter your password",
+                        hintStyle: TextStyle(color: Colors.grey)),
+                    obscureText: true,
+                    validator: validateInput,
+                    onChanged: (value){
+                      password=value;
+                    },
+                  ),
+                  SizedBox(height: 40),
+                  InkWell(
+                    onTap: () {
+                      validate();
+                      loginUser();
+                    },
+                    child: Container(
+                      height: 50,
+                      margin: EdgeInsets.symmetric(horizontal: 50),
+                      decoration: BoxDecoration(
+                        color: Colors.cyan[500],
+                        borderRadius: BorderRadius.circular(10),
                       ),
-                      SizedBox(height: 20),
-                      TextFormField(
-                        decoration: InputDecoration(
-                            hintText: "Enter your password",
-                            hintStyle: TextStyle(color: Colors.grey)),
-                        obscureText: true,
-                        validator: validateInput,
-                        onChanged: (value){
-                          password=value;
-                        },
-                      ),
-                      SizedBox(height: 40),
-                      InkWell(
-                        onTap: () {
-                          validate();
-                          loginUser();
-                        },
-                        child: Container(
-                          height: 50,
-                          margin: EdgeInsets.symmetric(horizontal: 50),
-                          decoration: BoxDecoration(
-                            color: Colors.cyan[500],
-                            borderRadius: BorderRadius.circular(10),
-                          ),
-                          child: Center(
-                            child: Text(
-                              "Login",
-                              style: TextStyle(
-                                  color: Colors.white,
-                                  fontSize: 15,
-                                  fontWeight: FontWeight.bold),
-                            ),
-                          ),
+                      child: Center(
+                        child: Text(
+                          "Login",
+                          style: TextStyle(
+                              color: Colors.white,
+                              fontSize: 15,
+                              fontWeight: FontWeight.bold),
                         ),
                       ),
-                      SizedBox(
-                        height: 35,
-                      ),
-                      MaterialButton(
+                    ),
+                  ),
+                  SizedBox(
+                    height: 35,
+                  ),
+                  MaterialButton(
+                    onPressed: () {
+                      loginGoogle();
+                    },
+                    color: kWhiteColor,
+                    minWidth: double.infinity,
+                    padding: EdgeInsets.symmetric(
+                      vertical: 16,
+                    ),
+                    shape: RoundedRectangleBorder(
+                      borderRadius: BorderRadius.circular(8),
+                    ),
+                    child: Row(
+                      mainAxisAlignment: MainAxisAlignment.center,
+                      children: [
+                        Image.asset(
+                          "assets/images/icons8-google-24.png",
+                        ),
+                        SizedBox(
+                          width: 8,
+                        ),
+                        Text(
+                          'Log in with Google',
+                          style: TextStyle(
+                            fontSize: 16,
+                            color: kBlackColor,
+                          ),
+                        ),
+                      ],
+                    ),
+                  ),
+                  SizedBox(
+                    height: 40,
+                  ),
+                  Row(
+                    mainAxisAlignment: MainAxisAlignment.center,
+                    children: [
+                      Text("Don't have an account?", style: TextStyle(
+                        fontSize: 15.0
+                      ),),
+                      SizedBox(width: 10),
+                      TextButton(
                         onPressed: () {
-                          loginGoogle();
+                          Navigator.push(
+                            context,
+                            MaterialPageRoute(
+                              builder: (context) => SignUp(),
+                            ),
+                          );
                         },
-                        color: kWhiteColor,
-                        minWidth: double.infinity,
-                        padding: EdgeInsets.symmetric(
-                          vertical: 16,
-                        ),
-                        shape: RoundedRectangleBorder(
-                          borderRadius: BorderRadius.circular(8),
-                        ),
-                        child: Row(
-                          mainAxisAlignment: MainAxisAlignment.center,
-                          children: [
-                            Image.asset(
-                              "assets/images/icons8-google-24.png",
-                            ),
-                            SizedBox(
-                              width: 8,
-                            ),
-                            Text(
-                              'Log in with Google',
-                              style: TextStyle(
-                                fontSize: 16,
-                                color: kBlackColor,
-                              ),
-                            ),
-                          ],
-                        ),
-                      ),
-                      SizedBox(
-                        height: 40,
-                      ),
-                      Row(
-                        mainAxisAlignment: MainAxisAlignment.center,
-                        children: [
-                          Text("Don't have an account?", style: TextStyle(
-                            fontSize: 15.0
-                          ),),
-                          SizedBox(width: 10),
-                          TextButton(
-                            onPressed: () {
-                              Navigator.push(
-                                context,
-                                MaterialPageRoute(
-                                  builder: (context) => SignUp(),
-                                ),
-                              );
-                            },
-                            child: Text('Sign Up', style: TextStyle(
-                              decoration: TextDecoration.underline,
-                              color: Colors.blue,
-                              fontSize: 15.0,
-                            ),),
-                          )
-                        ],
-                      ),
+                        child: Text('Sign Up', style: TextStyle(
+                          decoration: TextDecoration.underline,
+                          color: Colors.blue,
+                          fontSize: 15.0,
+                        ),),
+                      )
                     ],
                   ),
-                ),
+                ],
               ),
-            ))
+            ),
+              ),
+            )
           ],
         ),
       ),

@@ -85,183 +85,182 @@ class _SignUpState extends State<SignUp> {
                 ],
               ),
             ),
-            Expanded(
-                child: Container(
+            Container(
               decoration: BoxDecoration(
-                  color: Colors.white,
-                  borderRadius: BorderRadius.only(
-                    topLeft: Radius.circular(60),
-                    topRight: Radius.circular(60),
-                  )),
+              color: Colors.white,
+              borderRadius: BorderRadius.only(
+                topLeft: Radius.circular(60),
+                topRight: Radius.circular(60),
+              )),
               child: Padding(
-                padding: EdgeInsets.all(30),
-                child: Form(
-                  key: signupFormKey,
-                  child: Column(
-                    children: <Widget>[
-                      SizedBox(height: 10),
-                      TextFormField(
-                        decoration: InputDecoration(
-                            hintText: "Enter your email",
-                            hintStyle: TextStyle(color: Colors.grey)),
-                        // ignore: missing_return
-                        validator: validateInput,
-                        onChanged: (value) {
-                          email = value;
-                        },
-                      ),
-                      SizedBox(height: 20),
-                      TextFormField(
-                        decoration: InputDecoration(
-                          hintText: "Enter your password",
-                          hintStyle: TextStyle(color: Colors.grey),
+            padding: EdgeInsets.all(30),
+            child: Form(
+              key: signupFormKey,
+              child: Column(
+                children: <Widget>[
+                  SizedBox(height: 10),
+                  TextFormField(
+                    decoration: InputDecoration(
+                        hintText: "Enter your email",
+                        hintStyle: TextStyle(color: Colors.grey)),
+                    // ignore: missing_return
+                    validator: validateInput,
+                    onChanged: (value) {
+                      email = value;
+                    },
+                  ),
+                  SizedBox(height: 20),
+                  TextFormField(
+                    decoration: InputDecoration(
+                      hintText: "Enter your password",
+                      hintStyle: TextStyle(color: Colors.grey),
+                    ),
+                    validator: validateInput,
+                    onChanged: (value) {
+                      password = value;
+                    },
+                    obscureText: true,
+                  ),
+                  SizedBox(height: 20),
+                  TextFormField(
+                    decoration: InputDecoration(
+                      hintText: "Confirm your Password",
+                      hintStyle: TextStyle(color: Colors.grey),
+                    ),
+                    validator: validateInput,
+                    onChanged: (value) {
+                      confirmPassword = value;
+                    },
+                    obscureText: true,
+                  ),
+                  SizedBox(
+                    height: 30,
+                  ),
+                  InkWell(
+                      child: Container(
+                        height: 50,
+                        margin: EdgeInsets.symmetric(horizontal: 50),
+                        decoration: BoxDecoration(
+                          color: Colors.amberAccent,
+                          borderRadius: BorderRadius.circular(10),
                         ),
-                        validator: validateInput,
-                        onChanged: (value) {
-                          password = value;
-                        },
-                        obscureText: true,
-                      ),
-                      SizedBox(height: 20),
-                      TextFormField(
-                        decoration: InputDecoration(
-                          hintText: "Confirm your Password",
-                          hintStyle: TextStyle(color: Colors.grey),
-                        ),
-                        validator: validateInput,
-                        onChanged: (value) {
-                          confirmPassword = value;
-                        },
-                        obscureText: true,
-                      ),
-                      SizedBox(
-                        height: 30,
-                      ),
-                      InkWell(
-                          child: Container(
-                            height: 50,
-                            margin: EdgeInsets.symmetric(horizontal: 50),
-                            decoration: BoxDecoration(
-                              color: Colors.amberAccent,
-                              borderRadius: BorderRadius.circular(10),
-                            ),
-                            child: Center(
-                              child: Text(
-                                "Sign up",
-                                style: TextStyle(
-                                    color: Colors.white,
-                                    fontSize: 15,
-                                    fontWeight: FontWeight.bold),
-                              ),
-                            ),
+                        child: Center(
+                          child: Text(
+                            "Sign up",
+                            style: TextStyle(
+                                color: Colors.white,
+                                fontSize: 15,
+                                fontWeight: FontWeight.bold),
                           ),
-                          onTap: () {
-                            validate();
-                            signUpUser();
-                          }),
-                      SizedBox(
-                        height: 20,
+                        ),
                       ),
-                      MaterialButton(
+                      onTap: () {
+                        validate();
+                        signUpUser();
+                      }),
+                  SizedBox(
+                    height: 20,
+                  ),
+                  MaterialButton(
+                    onPressed: () {
+                      signupGoogle();
+                    },
+                    color: kWhiteColor,
+                    minWidth: double.infinity,
+                    padding: EdgeInsets.symmetric(
+                      vertical: 16,
+                    ),
+                    shape: RoundedRectangleBorder(
+                      borderRadius: BorderRadius.circular(8),
+                    ),
+                    child: Row(
+                      mainAxisAlignment: MainAxisAlignment.center,
+                      children: [
+                        Image.asset(
+                          "assets/images/icons8-google-24.png",
+                        ),
+                        SizedBox(
+                          width: 8,
+                        ),
+                        Text(
+                          'Sign up with Google',
+                          style: TextStyle(
+                            fontSize: 16,
+                            color: kBlackColor,
+                          ),
+                        ),
+                      ],
+                    ),
+                  ),
+                  SizedBox(
+                    height: 10,
+                  ),
+                  MaterialButton(
+                    onPressed: () {
+                      Navigator.push(
+                        context,
+                        MaterialPageRoute(
+                          builder: (context) => nikhil(),
+                        ),
+                      );
+                    },
+                    color: kFacebookColor,
+                    minWidth: double.infinity,
+                    padding: EdgeInsets.symmetric(
+                      vertical: 16,
+                    ),
+                    shape: RoundedRectangleBorder(
+                      borderRadius: BorderRadius.circular(8),
+                    ),
+                    child: Row(
+                      mainAxisAlignment: MainAxisAlignment.center,
+                      children: [
+                        Image.asset(
+                          "assets/images/facebook_logo.png",
+                        ),
+                        SizedBox(
+                          width: 8,
+                        ),
+                        Text(
+                          'Sign up with Facebook',
+                          style: TextStyle(
+                            fontSize: 16,
+                            color: kWhiteColor,
+                          ),
+                        ),
+                      ],
+                    ),
+                  ),
+                  SizedBox(height: 30),
+                  Row(
+                    mainAxisAlignment: MainAxisAlignment.center,
+                    children: [
+                      Text("Already have an account?", style: TextStyle(
+                          fontSize: 15.0
+                      ),),
+                      SizedBox(width: 10),
+                      TextButton(
                         onPressed: () {
-                          signupGoogle();
-                        },
-                        color: kWhiteColor,
-                        minWidth: double.infinity,
-                        padding: EdgeInsets.symmetric(
-                          vertical: 16,
-                        ),
-                        shape: RoundedRectangleBorder(
-                          borderRadius: BorderRadius.circular(8),
-                        ),
-                        child: Row(
-                          mainAxisAlignment: MainAxisAlignment.center,
-                          children: [
-                            Image.asset(
-                              "assets/images/icons8-google-24.png",
-                            ),
-                            SizedBox(
-                              width: 8,
-                            ),
-                            Text(
-                              'Sign up with Google',
-                              style: TextStyle(
-                                fontSize: 16,
-                                color: kBlackColor,
-                              ),
-                            ),
-                          ],
-                        ),
-                      ),
-                      SizedBox(
-                        height: 10,
-                      ),
-                      MaterialButton(
-                        onPressed: () {
-                          Navigator.push(
+                          Navigator.pushReplacement(
                             context,
                             MaterialPageRoute(
-                              builder: (context) => nikhil(),
+                              builder: (context) => LoginPage(),
                             ),
                           );
                         },
-                        color: kFacebookColor,
-                        minWidth: double.infinity,
-                        padding: EdgeInsets.symmetric(
-                          vertical: 16,
-                        ),
-                        shape: RoundedRectangleBorder(
-                          borderRadius: BorderRadius.circular(8),
-                        ),
-                        child: Row(
-                          mainAxisAlignment: MainAxisAlignment.center,
-                          children: [
-                            Image.asset(
-                              "assets/images/facebook_logo.png",
-                            ),
-                            SizedBox(
-                              width: 8,
-                            ),
-                            Text(
-                              'Sign up with Facebook',
-                              style: TextStyle(
-                                fontSize: 16,
-                                color: kWhiteColor,
-                              ),
-                            ),
-                          ],
-                        ),
-                      ),
-                      SizedBox(height: 30),
-                      Row(
-                        mainAxisAlignment: MainAxisAlignment.center,
-                        children: [
-                          Text("Already have an account?", style: TextStyle(
-                              fontSize: 15.0
-                          ),),
-                          SizedBox(width: 10),
-                          TextButton(
-                            onPressed: () {
-                              Navigator.pushReplacement(
-                                context,
-                                MaterialPageRoute(
-                                  builder: (context) => LoginPage(),
-                                ),
-                              );
-                            },
-                            child: Text('Login', style: TextStyle(
-                              decoration: TextDecoration.underline,
-                              color: Colors.blue,
-                              fontSize: 15.0,
-                            ),),
-                          )
-                        ],
-                      ),
+                        child: Text('Login', style: TextStyle(
+                          decoration: TextDecoration.underline,
+                          color: Colors.blue,
+                          fontSize: 15.0,
+                        ),),
+                      )
                     ],
                   ),
-                ),
+                ],
               ),
-            ))
+            ),
+              ),
+            )
           ],
         ),
       ),
