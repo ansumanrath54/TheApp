@@ -236,6 +236,7 @@ class _UserDetailsState extends State<UserDetails> {
                                     }
                                     else{
                                       await user.updateDisplayName(name);
+                                      await user.updatePhotoURL(_urlDownload);
                                       await UserData(email: user.email).updateUserData(name, username, company, about, _urlDownload);
                                       Navigator.pushReplacement(context, MaterialPageRoute(builder: (context) => MyHomePage()));
                                     }

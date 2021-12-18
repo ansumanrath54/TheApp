@@ -15,11 +15,9 @@ class UploadScreen extends StatefulWidget {
 class _UploadScreenState extends State<UploadScreen> {
 
   User user = FirebaseAuth.instance.currentUser;
-  String name, title, description, photo, email;
   int likes;
   int length = 0;
   Color _color = Colors.grey;
-  DocumentSnapshot variable;
 
   @override
   Widget build(BuildContext context) {
@@ -72,7 +70,7 @@ class _UploadScreenState extends State<UploadScreen> {
             children: [
               Row(
                 children: [
-                  CircleAvatar(backgroundImage: NetworkImage(user.photoURL),),
+                  CircleAvatar(backgroundImage: NetworkImage(doc['profile_pic']),),
                   SizedBox(width: 15),
                   Text(doc['name'], style: GoogleFonts.poppins(fontSize: 18),),
                 ],
@@ -97,7 +95,7 @@ class _UploadScreenState extends State<UploadScreen> {
                           _color = Colors.pink;
                           await PostData(email: user.email, r_uid: doc.id)
                               .updateUserData(
-                              doc['name'], doc['title'], doc['description'],
+                              doc['name'], user.photoURL, doc['title'], doc['description'],
                               doc['photo'], doc['likes'] + 1);
                         });
                       }
@@ -107,7 +105,7 @@ class _UploadScreenState extends State<UploadScreen> {
                             _color = Colors.grey;
                             await PostData(email: user.email, r_uid: doc.id)
                                 .updateUserData(
-                                doc['name'], doc['title'], doc['description'],
+                                doc['name'], user.photoURL, doc['title'], doc['description'],
                                 doc['photo'], doc['likes'] - 1);
                           });
                         }

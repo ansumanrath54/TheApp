@@ -1,6 +1,4 @@
 import 'dart:io';
-
-import 'package:cloud_firestore/cloud_firestore.dart';
 import 'package:firebase_auth/firebase_auth.dart';
 import 'package:firebase_storage/firebase_storage.dart';
 import 'package:flutter/cupertino.dart';
@@ -189,7 +187,7 @@ class _PostPageState extends State<PostPage> {
                     DateTime now = DateTime.now();
                     String rndUid = '${now.hour}${now.minute}${now.second}${now.day}${now.month}${now.year}';
                     print(rndUid + 'HOUR');
-                    await PostData(email: user.email, r_uid: rndUid).updateUserData(user.displayName, title, description, _urlDownload, 0);
+                    await PostData(email: user.email, r_uid: rndUid).updateUserData(user.displayName, user.photoURL, title, description, _urlDownload, 0);
                     Navigator.pushReplacement(context, MaterialPageRoute(builder: (context) => MyHomePage()));
                   }
                 },

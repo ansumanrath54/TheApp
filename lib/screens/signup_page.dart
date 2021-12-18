@@ -6,7 +6,6 @@ import 'package:social_media_app_starter/screens/login_page.dart';
 import 'package:social_media_app_starter/screens/profile_screen.dart';
 import 'package:social_media_app_starter/screens/user_details.dart';
 import '../constants/constant.dart';
-import '../demo_profile/nikhil kamath.dart';
 
 class SignUp extends StatefulWidget {
   @override
@@ -193,45 +192,6 @@ class _SignUpState extends State<SignUp> {
                       ],
                     ),
                   ),
-                  // SizedBox(
-                  //   height: 10,
-                  // ),
-                  // MaterialButton(
-                  //   onPressed: () {
-                  //     Navigator.push(
-                  //       context,
-                  //       MaterialPageRoute(
-                  //         builder: (context) => nikhil(),
-                  //       ),
-                  //     );
-                  //   },
-                  //   color: kFacebookColor,
-                  //   minWidth: double.infinity,
-                  //   padding: EdgeInsets.symmetric(
-                  //     vertical: 16,
-                  //   ),
-                  //   shape: RoundedRectangleBorder(
-                  //     borderRadius: BorderRadius.circular(8),
-                  //   ),
-                  //   child: Row(
-                  //     mainAxisAlignment: MainAxisAlignment.center,
-                  //     children: [
-                  //       Image.asset(
-                  //         "assets/images/facebook_logo.png",
-                  //       ),
-                  //       SizedBox(
-                  //         width: 8,
-                  //       ),
-                  //       Text(
-                  //         'Sign up with Facebook',
-                  //         style: TextStyle(
-                  //           fontSize: 16,
-                  //           color: kWhiteColor,
-                  //         ),
-                  //       ),
-                  //     ],
-                  //   ),
-                  // ),
                   SizedBox(height: 20),
                   Row(
                     mainAxisAlignment: MainAxisAlignment.center,

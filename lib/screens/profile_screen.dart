@@ -6,8 +6,6 @@ import 'package:google_sign_in/google_sign_in.dart';
 import 'package:social_media_app_starter/chat_app/modules/chat_page.dart';
 import 'package:social_media_app_starter/services/slidebar_menu.dart';
 
-import 'onboarding_screen.dart';
-
 class MyHomePage extends StatefulWidget {
 
   @override
@@ -21,7 +19,7 @@ class _MyHomePageState extends State<MyHomePage> {
   String name = "Guest";
   String company = "?";
   String about = "No description";
-  String photo;
+  String photo = 'assets/images/no-photo.jpg';
   final googleSignIn = GoogleSignIn();
   User user = FirebaseAuth.instance.currentUser;
   bool folded = false;
@@ -322,8 +320,6 @@ class _MyHomePageState extends State<MyHomePage> {
                       SizedBox(
                         height: 16,
                       ),
-
-                      //Container for reviews
 
                       Container(
                         padding: EdgeInsets.only(left: 32, right: 32),
