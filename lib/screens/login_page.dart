@@ -156,7 +156,8 @@ class _LoginPageState extends State<LoginPage> {
                       vertical: 16,
                     ),
                     shape: RoundedRectangleBorder(
-                      borderRadius: BorderRadius.circular(8),
+                      borderRadius: BorderRadius.circular(17),
+                      side: BorderSide(color: Colors.black12, width: 4),
                     ),
                     child: Row(
                       mainAxisAlignment: MainAxisAlignment.center,
@@ -204,6 +205,7 @@ class _LoginPageState extends State<LoginPage> {
                       )
                     ],
                   ),
+                  SizedBox(height: 100)
                 ],
               ),
             ),

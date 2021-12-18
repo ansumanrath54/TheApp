@@ -21,7 +21,7 @@ class _MyHomePageState extends State<MyHomePage> {
   String name = "Guest";
   String company = "?";
   String about = "No description";
-  String photo = "assets/images/no-photo.jpg";
+  String photo;
   final googleSignIn = GoogleSignIn();
   User user = FirebaseAuth.instance.currentUser;
   bool folded = false;
@@ -38,7 +38,7 @@ class _MyHomePageState extends State<MyHomePage> {
     final scaffoldkey = GlobalKey<ScaffoldState>();
     return Scaffold(
       key: scaffoldkey,
-      drawer: SlideBarMenu(),
+      drawer: SlideBarMenu(photo: photo,),
       body: Stack(
         children: <Widget>[
           SizedBox.expand(
@@ -80,8 +80,13 @@ class _MyHomePageState extends State<MyHomePage> {
                                 height: 100,
                                 width: 100,
                                 child: ClipOval(
-                                  child: Image.network(
-                                    '$photo',
+                                  child: photo != 'assets/images/no-photo.jpg' ?
+                                  Image.network(
+                                    photo,
+                                    fit: BoxFit.cover,
+                                  ) :
+                                  Image.asset(
+                                    photo,
                                     fit: BoxFit.cover,
                                   ),
                                 )),

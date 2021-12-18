@@ -1,5 +1,6 @@
 import 'dart:io';
 
+import 'package:cloud_firestore/cloud_firestore.dart';
 import 'package:firebase_auth/firebase_auth.dart';
 import 'package:firebase_storage/firebase_storage.dart';
 import 'package:flutter/cupertino.dart';
@@ -58,7 +59,7 @@ class _PostPageState extends State<PostPage> {
 
     print('Download-Link: $urlDownload');
     const snackBar = SnackBar(
-      content: Text("Profile Picture uploaded successfully"),
+      content: Text("Photo uploaded successfully"),
     );
     ScaffoldMessenger.of(context).showSnackBar(snackBar);
   }

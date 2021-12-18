@@ -1,5 +1,6 @@
 import 'package:carousel_slider/carousel_slider.dart';
 import 'package:flutter/material.dart';
+import 'package:social_media_app_starter/screens/contact.dart';
 import 'package:social_media_app_starter/screens/login_page.dart';
 import '../constants/constant.dart';
 
@@ -193,17 +194,34 @@ class _OnboardingScreenState extends State<OnboardingScreen> {
                   SizedBox(
                     height: 4,
                   ),
-                  Text(
-                    'Terms & Conditions Policies',
-                    style: TextStyle(
-                      color: kWhiteColor,
-                      fontSize: 12,
-                      decoration: TextDecoration.underline,
-                      fontWeight: FontWeight.bold,
+                  GestureDetector(
+                    child: Text(
+                      'Terms & Conditions Policies',
+                      style: TextStyle(
+                        color: kWhiteColor,
+                        fontSize: 12,
+                        decoration: TextDecoration.underline,
+                        fontWeight: FontWeight.bold,
+                      ),
+                    ),
+                  ),
+                  SizedBox(height: 5),
+                  GestureDetector(
+                    onTap: () {
+                      Navigator.push(context, MaterialPageRoute(builder: (context) => ContactPage()));
+                    },
+                    child: Text(
+                      'Contact us',
+                      style: TextStyle(
+                        color: kWhiteColor,
+                        fontSize: 12,
+                        decoration: TextDecoration.underline,
+                        fontWeight: FontWeight.bold,
+                      ),
                     ),
                   ),
                   SizedBox(
-                    height: 120,
+                    height: 100,
                   ),
                 ],
               ),

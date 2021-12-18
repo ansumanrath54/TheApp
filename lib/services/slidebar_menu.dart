@@ -7,14 +7,21 @@ import 'package:social_media_app_starter/screens/upload_screen.dart';
 import 'package:social_media_app_starter/screens/user_details.dart';
 import '../details.dart';
 
-class SlideBarMenu extends StatelessWidget {
-  const SlideBarMenu({Key key}) : super(key: key);
+class SlideBarMenu extends StatefulWidget {
+  var photo;
+  SlideBarMenu({Key key, this.photo}) : super(key: key);
 
+  @override
+  State<SlideBarMenu> createState() => _SlideBarMenuState();
+}
+
+class _SlideBarMenuState extends State<SlideBarMenu> {
   @override
   Widget build(BuildContext context) {
 
     User user = FirebaseAuth.instance.currentUser;
     final googleSignIn = GoogleSignIn();
+    String _photo = widget.photo;
 
     return Drawer(
       child: ListView(
@@ -24,8 +31,12 @@ class SlideBarMenu extends StatelessWidget {
             accountName: Text('${user.displayName}'),
             accountEmail: Text('${user.email}'),
             currentAccountPicture: CircleAvatar(
-              child: ClipOval(
-                child: Image.network('${user.photoURL}'),
+              backgroundImage: widget.photo != 'assets/images/no-photo.jpg' ?
+              NetworkImage(
+                widget.photo,
+              ) :
+              AssetImage(
+                widget.photo,
               ),
             ),
           ),

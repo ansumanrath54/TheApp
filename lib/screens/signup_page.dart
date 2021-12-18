@@ -171,7 +171,8 @@ class _SignUpState extends State<SignUp> {
                       vertical: 16,
                     ),
                     shape: RoundedRectangleBorder(
-                      borderRadius: BorderRadius.circular(8),
+                      borderRadius: BorderRadius.circular(17),
+                      side: BorderSide(color: Colors.black12, width: 4),
                     ),
                     child: Row(
                       mainAxisAlignment: MainAxisAlignment.center,
@@ -192,46 +193,46 @@ class _SignUpState extends State<SignUp> {
                       ],
                     ),
                   ),
-                  SizedBox(
-                    height: 10,
-                  ),
-                  MaterialButton(
-                    onPressed: () {
-                      Navigator.push(
-                        context,
-                        MaterialPageRoute(
-                          builder: (context) => nikhil(),
-                        ),
-                      );
-                    },
-                    color: kFacebookColor,
-                    minWidth: double.infinity,
-                    padding: EdgeInsets.symmetric(
-                      vertical: 16,
-                    ),
-                    shape: RoundedRectangleBorder(
-                      borderRadius: BorderRadius.circular(8),
-                    ),
-                    child: Row(
-                      mainAxisAlignment: MainAxisAlignment.center,
-                      children: [
-                        Image.asset(
-                          "assets/images/facebook_logo.png",
-                        ),
-                        SizedBox(
-                          width: 8,
-                        ),
-                        Text(
-                          'Sign up with Facebook',
-                          style: TextStyle(
-                            fontSize: 16,
-                            color: kWhiteColor,
-                          ),
-                        ),
-                      ],
-                    ),
-                  ),
-                  SizedBox(height: 30),
+                  // SizedBox(
+                  //   height: 10,
+                  // ),
+                  // MaterialButton(
+                  //   onPressed: () {
+                  //     Navigator.push(
+                  //       context,
+                  //       MaterialPageRoute(
+                  //         builder: (context) => nikhil(),
+                  //       ),
+                  //     );
+                  //   },
+                  //   color: kFacebookColor,
+                  //   minWidth: double.infinity,
+                  //   padding: EdgeInsets.symmetric(
+                  //     vertical: 16,
+                  //   ),
+                  //   shape: RoundedRectangleBorder(
+                  //     borderRadius: BorderRadius.circular(8),
+                  //   ),
+                  //   child: Row(
+                  //     mainAxisAlignment: MainAxisAlignment.center,
+                  //     children: [
+                  //       Image.asset(
+                  //         "assets/images/facebook_logo.png",
+                  //       ),
+                  //       SizedBox(
+                  //         width: 8,
+                  //       ),
+                  //       Text(
+                  //         'Sign up with Facebook',
+                  //         style: TextStyle(
+                  //           fontSize: 16,
+                  //           color: kWhiteColor,
+                  //         ),
+                  //       ),
+                  //     ],
+                  //   ),
+                  // ),
+                  SizedBox(height: 20),
                   Row(
                     mainAxisAlignment: MainAxisAlignment.center,
                     children: [
@@ -256,6 +257,7 @@ class _SignUpState extends State<SignUp> {
                       )
                     ],
                   ),
+                  SizedBox(height: 100)
                 ],
               ),
             ),

@@ -19,6 +19,7 @@ class _UploadScreenState extends State<UploadScreen> {
   int likes;
   int length = 0;
   Color _color = Colors.grey;
+  DocumentSnapshot variable;
 
   @override
   Widget build(BuildContext context) {
@@ -69,7 +70,13 @@ class _UploadScreenState extends State<UploadScreen> {
           child: Column(
             crossAxisAlignment: CrossAxisAlignment.start,
             children: [
-              Text(doc['name'], style: GoogleFonts.poppins(fontSize: 18),),
+              Row(
+                children: [
+                  CircleAvatar(backgroundImage: NetworkImage(user.photoURL),),
+                  SizedBox(width: 15),
+                  Text(doc['name'], style: GoogleFonts.poppins(fontSize: 18),),
+                ],
+              ),
               SizedBox(height: 10),
               Text(doc['email'], style: GoogleFonts.poppins(fontSize: 17),),
               SizedBox(height: 10),
@@ -78,6 +85,8 @@ class _UploadScreenState extends State<UploadScreen> {
               SizedBox(height: 10),
               Text('Description:-\n${doc['description']}',
                 style: GoogleFonts.poppins(fontSize: 17),),
+              SizedBox(height: 10),
+              doc['photo'] != "assets/images/no-photo.jpg" ? Image.network(doc['photo']) : SizedBox(),
               SizedBox(height: 10),
               Row(
                 children: [
@@ -93,13 +102,15 @@ class _UploadScreenState extends State<UploadScreen> {
                         });
                       }
                       else {
-                        setState(() async {
-                          _color = Colors.grey;
-                          await PostData(email: user.email, r_uid: doc.id)
-                              .updateUserData(
-                              doc['name'], doc['title'], doc['description'],
-                              doc['photo'], doc['likes'] - 1);
-                        });
+                        if(doc['likes'] > 0) {
+                          setState(() async {
+                            _color = Colors.grey;
+                            await PostData(email: user.email, r_uid: doc.id)
+                                .updateUserData(
+                                doc['name'], doc['title'], doc['description'],
+                                doc['photo'], doc['likes'] - 1);
+                          });
+                        }
                       }
                     },
                     icon: Icon(Icons.favorite, color: _color,),
